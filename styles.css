@@ -1,0 +1,254 @@
+@charset "UTF-8";
+body {
+  margin: 0px;
+  /*ascsdvasfvasf*/
+  font-family: "Muli", sans-serif;
+  /* Se pega la referecia en body y arriba el link*/
+  background-color: black;
+  /*background: linear-gradient(to bottom, white, #66829e); Degradado desde abajo*/
+  color: white;
+}
+
+.header {
+  background-color: black;
+  height: 3rem;
+  /* ALtura del header*/
+}
+
+.Menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.Menu__item {  
+  list-style: none;
+  flex: 1; 
+  /*Ocupa todo el espacio horizontal disponible*/
+  line-height: 3rem; 
+  /*Ocupa todo el espacio verrtical disponible, mismo height del header*/
+  text-align: center;
+  transition: flex .5s;
+}
+
+.Menu__item:hover {
+  flex: 8;
+  background-color: gray;
+  cursor: pointer;
+}
+
+.presentation {
+  display: flex;
+  height: 23rem;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1; /*Ocupar ancho disponible*/
+  padding: 35px 0px 35px 80px; 
+}
+
+.content__tittle {
+  font-size: 25px;
+}
+
+.aside {
+  flex: 0 0 40%; /*flex-grow, flex-shrink y flex-basis -> % de espacio horizontal para aside*/
+  margin:auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.aside__img {
+  width: 60%;
+}
+
+.aside__networks {
+  padding: 5px 30px;
+  background-color: rgb(252, 252, 252); /*Fondo de barra rbga=RedGreenBlueOpacidad*/
+  border-radius: 25px; /*Borde redondo*/
+}
+
+.aside__networks--img {
+  height: 50px;
+  cursor: pointer;
+}
+ 
+.categories__tittle {
+  font-size: 19px;
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 30px;
+  width: 100%;
+}
+
+.carousel {
+  /*Carrusel principal o padre*/
+  width: 100%;
+  overflow: scroll;
+  /*Propiedad para que corra lateralmente*/
+  padding: 30px 30px 10px 30px;
+  position: relative;
+  /*Todos elementos en relación a carousel*/
+}
+
+.carousel__container {
+  /*Container de las imagenes del carrusel*/
+  white-space: nowrap;
+  /*Espaciado entre carruseles*/
+  margin: 70px 0px 50px 0px;
+  padding-bottom: 10px;
+}
+
+.carousel-item {
+  /*Configuración general de las imagenes*/
+  background-color: gray;
+  width: 200px;
+  height: 250px;
+  border-radius: 20px;
+  /*Bordes redondeados*/
+  overflow: hidden;
+  /*PAra que mantenga forma al estar sobre*/
+  margin-right: 10px;
+  display: inline-block;
+  /*Alineación en linea*/
+  cursor: pointer;
+  /*Puntero cambia*/
+  -webkit-transition: 450ms all;
+  transition: 450ms all;
+  /*Tiempo de transición*/
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+  /*Animación centrada y de izquierda a derecha*/
+  position: relative;
+  /*Tomar estilos de padre*/
+}
+
+.carousel-item:hover ~ .carousel-item {
+  /*Selector(~)=Para todos los elementos*/
+  -webkit-transform: translate3d(100px, 0, 0);
+          transform: translate3d(100px, 0, 0);
+  /*Elementos se desplazan a la derecha*/
+}
+
+.carousel__container:hover .carousel-item {
+  /*Al seleccionar un elemento los demás se opacan*/
+  opacity: 0.3;
+}
+
+.carousel__container:hover .carousel-item:hover {
+  /*Hacer crecer la selección 1.5 veces sin opacidad*/
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  opacity: 1;
+}
+
+.carousel-item__img {
+  width: 200px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*Para que la imagen conerve su tamaño*/
+}
+
+.carousel-item__details {
+  /*Gradiente desde mas oscuro a claro*/
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.9)));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  font-size: 10px;
+  opacity: 0;
+  -webkit-transition: 450ms opacity;
+  transition: 450ms opacity;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.carousel-item__details img {
+  height: 30px;
+}
+
+.carousel-item__details p {
+  margin: 0px;
+}
+
+.carousel-item__details:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar:hover {
+  background: #b3b3b3;
+  -webkit-box-shadow: 2px1pxrgba 0, 0, 0, 0.2;
+          box-shadow: 2px1pxrgba 0, 0, 0, 0.2;
+}
+
+::-webkit-scrollbar:hover:active {
+  background: #999;
+}
+
+.footer {
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 100%;
+}
+
+.footer a {
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer__img {
+  height: 50%;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__conteiner {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
